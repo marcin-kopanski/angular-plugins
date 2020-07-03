@@ -119,7 +119,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/mfe1",
+            "outputPath": "dist/shell/mfe1",
             "index": "projects/mfe1/src/index.html",
             "main": "projects/mfe1/src/main.ts",
             "polyfills": "projects/mfe1/src/polyfills.ts",
@@ -225,7 +225,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/mfe2",
+            "outputPath": "dist/shell/mfe2",
             "index": "projects/mfe2/src/index.html",
             "main": "projects/mfe2/src/main.ts",
             "polyfills": "projects/mfe2/src/polyfills.ts",

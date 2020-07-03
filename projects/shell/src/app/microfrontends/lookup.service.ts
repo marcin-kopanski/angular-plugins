@@ -7,7 +7,7 @@ export class LookupService {
         return Promise.resolve([
             {
                 // For Loading
-                remoteEntry: 'http://localhost:3000/remoteEntry.js',
+                remoteEntry: 'http://localhost:5000/mfe1/mfe1RemoteEntry.js',
                 remoteName: 'mfe1',
                 exposedModule: 'Module',
                 
@@ -18,7 +18,7 @@ export class LookupService {
             },
             {
                 // For Loading
-                remoteEntry: 'http://localhost:3001/remoteEntry.js',
+                remoteEntry: 'http://localhost:5000/mfe2/mfe2RemoteEntry.js',
                 remoteName: 'mfe2',
                 exposedModule: 'Module',
                 
@@ -26,7 +26,18 @@ export class LookupService {
                 displayName: 'Bookings',
                 routePath: 'bookings',
                 ngModuleName: 'BookingsModule'
-            }            
+            },
+            {
+                // For Loading
+                remoteEntry: 'http://localhost:5000/mfe3/mfe3RemoteEntry.js',
+                remoteName: 'mfe2',
+                exposedModule: 'Module',
+                
+                // For Routing
+                displayName: 'Bookings2',
+                routePath: 'bookings2',
+                ngModuleName: 'BookingsModule'
+            }        
         ] as Microfrontend[]);
     }
 }

@@ -57,7 +57,7 @@ const mfe1Config = {
     mainFields: ["browser", "module", "main"]
   },
   devServer: {
-    contentBase: path.join(__dirname, "dist/mfe1"),
+    contentBase: path.join(__dirname, "dist/shell/mfe1"),
     port: 3000
   },  
   module: {
@@ -69,7 +69,7 @@ const mfe1Config = {
     new ModuleFederationPlugin({
       name: "mfe1",
       library: { type: "var", name: "mfe1" },
-      filename: "remoteEntry.js",
+      filename: "mfe1RemoteEntry.js",
       exposes: {
         Component: './projects/mfe1/src/app/app.component.ts',
         Module: './projects/mfe1/src/app/flights/flights.module.ts'
@@ -93,9 +93,9 @@ const mfe1Config = {
     })
   ],
   output: {
-    publicPath: "http://localhost:3000/",
+    publicPath: "http://localhost:5000/mfe1/",
     filename: "[name].js",
-    path: __dirname + "/dist/mfe1",
+    path: __dirname + "/dist/shell/mfe1",
     chunkFilename: "[id].[chunkhash].js"
   },
   mode: "production"
@@ -107,7 +107,7 @@ const mfe2Config = {
     mainFields: ["browser", "module", "main"]
   },
   devServer: {
-    contentBase: path.join(__dirname, "dist/mfe2"),
+    contentBase: path.join(__dirname, "dist/shell/mfe2"),
     port: 3000
   },  
   module: {
@@ -119,7 +119,7 @@ const mfe2Config = {
     new ModuleFederationPlugin({
       name: "mfe2",
       library: { type: "var", name: "mfe2" },
-      filename: "remoteEntry.js",
+      filename: "mfe2RemoteEntry.js",
       exposes: {
         Component: './projects/mfe2/src/app/app.component.ts',
         Module: './projects/mfe2/src/app/bookings/bookings.module.ts'
@@ -143,9 +143,9 @@ const mfe2Config = {
     })
   ],
   output: {
-    publicPath: "http://localhost:3001/",
+    publicPath: "http://localhost:5000/mfe2/",
     filename: "[name].js",
-    path: __dirname + "/dist/mfe2",
+    path: __dirname + "/dist/shell/mfe2",
     chunkFilename: "[id].[chunkhash].js"
   },
   mode: "production"
