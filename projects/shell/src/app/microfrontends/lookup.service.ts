@@ -37,7 +37,45 @@ export class LookupService {
                 displayName: 'Bookings2',
                 routePath: 'bookings2',
                 ngModuleName: 'BookingsModule'
-            }        
+            },
+            {
+                // For Loading
+                remoteEntry: 'http://localhost:5000/mfe3/mfe3RemoteEntry.js',
+                remoteName: 'mfe2',
+                exposedModule: 'Module',
+                
+                // For Routing
+                displayName: 'Bookings2',
+                routePath: 'bookings2',
+                ngModuleName: 'BookingsModule'
+            }   
+        ] as Microfrontend[]);
+    }
+
+    pluginLookup(): Promise<Microfrontend[]> {
+        return Promise.resolve([
+            {
+                // For Loading
+                remoteEntry: 'http://localhost:5000/test_plugin/test_pluginRemoteEntry.js',
+                remoteName: 'test_plugin',
+                exposedModule: 'Module',
+                
+                // For Routing
+                displayName: 'TestPlugin',
+                routePath: 'test',
+                ngModuleName: 'AppModule'
+            }   ,
+            {
+                // For Loading
+                remoteEntry: 'http://localhost:5000/mfe2/mfe2RemoteEntry.js',
+                remoteName: 'mfe2',
+                exposedModule: 'Module',
+                
+                // For Routing
+                displayName: 'Bookings',
+                routePath: 'bookings',
+                ngModuleName: 'BookingsModule'
+            }
         ] as Microfrontend[]);
     }
 }

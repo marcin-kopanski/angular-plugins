@@ -3,6 +3,7 @@
     <li><a routerLink="/">Home</a></li>
     <li *ngFor="let mfe of microfrontends"><a [routerLink]="mfe.routePath">{{mfe.displayName}}</a></li>
     <li><a routerLink="/config">Config</a></li>
+    <li><a routerLink="/test">Plugin test</a></li>
 </ul>
 
 <router-outlet></router-outlet>

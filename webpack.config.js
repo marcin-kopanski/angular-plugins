@@ -24,7 +24,7 @@ const shellConfig = {
   plugins: [
     new ModuleFederationPlugin({
       remotes: {},
-      shared: ["@angular/core", "@angular/common", "@angular/router"]
+      shared: ["@angular/core", "@angular/common", "@angular/router", "rxjs"]
     }),
     new AotPlugin({
       skipCodeGeneration: false,
@@ -151,5 +151,55 @@ const mfe2Config = {
   mode: "production"
 };
 
+const testPluginConfig = {
+  entry: ["./projects/test_plugin/src/polyfills.ts", "./projects/test_plugin/src/main.ts"],
+  resolve: {
+    mainFields: ["browser", "module", "main"]
+  },
+  devServer: {
+    contentBase: path.join(__dirname, "dist/shell/test_plugin"),
+    port: 3000
+  },  
+  module: {
+    rules: [
+      { test: /\.ts$/, loader: "@ngtools/webpack" }
+    ]
+  },
+  plugins: [
+    new ModuleFederationPlugin({
+      name: "test_plugin",
+      library: { type: "var", name: "test_plugin" },
+      filename: "test_pluginRemoteEntry.js",
+      exposes: {
+        Component: './projects/test_plugin/src/app/app.component.ts',
+        Module: './projects/test_plugin/src/app/app.module.ts'
+      },
+      shared: ["@angular/core", "@angular/common", "@angular/router", "rxjs"]
+    }),
+    new AotPlugin({
+      skipCodeGeneration: false,
+      tsConfigPath: "./projects/test_plugin/tsconfig.app.json",
+      directTemplateLoading: true,
+      entryModule: path.resolve(
+        __dirname,
+        "./projects/test_plugin/src/app/app.module#AppModule"
+      )
+    }),
+    new CopyPlugin([
+      { from: 'projects/test_plugin/src/assets', to: 'assets' },
+    ]),    
+    new HtmlWebpackPlugin({
+      template: "./projects/test_plugin/src/index.html"
+    })
+  ],
+  output: {
+    publicPath: "http://localhost:5000/test_plugin/",
+    filename: "[name].js",
+    path: __dirname + "/dist/shell/test_plugin",
+    chunkFilename: "[id].[chunkhash].js"
+  },
+  mode: "production"
+};
 
-module.exports = [shellConfig, mfe1Config, mfe2Config];
+
+module.exports = [shellConfig, mfe1Config, mfe2Config, testPluginConfig];

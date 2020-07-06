@@ -1,0 +1,13 @@
+<div id="container">
+    <h1>Test Component</h1>
+    <div>
+        <button (click)="create()">Create Plugin Component</button>
+        <button (click)="send()">Send Change To Plugin</button>
+    </div>
+    <div>
+        <ng-container #vc></ng-container>
+    </div>
+    <div>
+        {{ answerFromPlugin }}
+    </div>
+</div>

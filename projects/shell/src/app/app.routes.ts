@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { loadRemoteModule } from '../federation-utils';
 import { ConfigComponent } from './config/config.component';
+import { TestComponent } from './test/test.component';
 
 export const APP_ROUTES: Routes = [
     {
@@ -12,6 +13,10 @@ export const APP_ROUTES: Routes = [
     {
       path: 'config',
       component: ConfigComponent
+    },
+    {
+      path: 'test',
+      component: TestComponent
     }
     // {
     //   path: 'flights',
