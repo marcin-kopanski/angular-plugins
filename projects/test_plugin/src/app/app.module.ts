@@ -7,8 +7,8 @@ import { APP_ROUTES } from './app.routes';
 
 @NgModule({
   imports: [
-    BrowserModule,
     FormsModule,
+    BrowserModule,
     RouterModule.forRoot(APP_ROUTES)
   ],
   declarations: [

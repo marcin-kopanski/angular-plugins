@@ -13,6 +13,8 @@ export class TestComponent {
 
     answerFromPlugin: string = "No answer";
 
+    component = this;
+
     constructor(private injector: Injector,
         private cfr: ComponentFactoryResolver, private lookupService: LookupService) { }
 
@@ -36,14 +38,14 @@ export class TestComponent {
             component.pluginInput = "Plugin created";
 
             // Output
-            const event = new EventEmitter<string>();
-            event.subscribe(this.receiveEvent.bind(this, event));
-            component.pluginOutput = event;
+            // const event = new EventEmitter<string>();
+            // event.subscribe(this.receiveEvent.bind(this, event));
+            (<EventEmitter<string>>component.pluginOutput).subscribe(event => this.receiveEvent(event));
         }
     }
 
     public receiveEvent(answer: any): void {
-        console.log(answer)
+        console.log('receiveEvent', answer)
         this.answerFromPlugin = answer;
     }
 }

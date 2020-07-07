@@ -1,15 +1,14 @@
 <h1>Plugin</h1>
 
-<h2>{{ pluginInput }}</h2>
+<h2>pluginInput: {{ pluginInput }}</h2>
 
 <input
     type="text"
     maxlength="1000"
-    [ngModel]="answerValue"
+    [(ngModel)]="answerValue"
     autocomplete="off"
 />
 
+<div>answerValue: {{ answerValue }}</div>
+
 <button (click)="send()">Send Change To Main App</button>
-
-<router-outlet></router-outlet>
-

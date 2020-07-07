@@ -24,7 +24,7 @@ const shellConfig = {
   plugins: [
     new ModuleFederationPlugin({
       remotes: {},
-      shared: ["@angular/core", "@angular/common", "@angular/router", "rxjs"]
+      shared: ["@angular/core", "@angular/common", "@angular/router", "@angular/forms"]
     }),
     new AotPlugin({
       skipCodeGeneration: false,
@@ -124,7 +124,7 @@ const mfe2Config = {
         Component: './projects/mfe2/src/app/app.component.ts',
         Module: './projects/mfe2/src/app/bookings/bookings.module.ts'
       },
-      shared: ["@angular/core", "@angular/common", "@angular/router"]
+      shared: ["@angular/core", "@angular/common", "@angular/router", "@angular/forms"]
     }),
     new AotPlugin({
       skipCodeGeneration: false,
@@ -174,7 +174,7 @@ const testPluginConfig = {
         Component: './projects/test_plugin/src/app/app.component.ts',
         Module: './projects/test_plugin/src/app/app.module.ts'
       },
-      shared: ["@angular/core", "@angular/common", "@angular/router", "rxjs"]
+      shared: ["@angular/core", "@angular/common", "@angular/router", "@angular/forms"]
     }),
     new AotPlugin({
       skipCodeGeneration: false,
