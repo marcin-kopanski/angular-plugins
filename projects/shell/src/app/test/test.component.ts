@@ -29,6 +29,7 @@ export class TestComponent {
             console.log(factory.ɵmod);
 
             const compFactory = this.cfr.resolveComponentFactory(factory.ɵmod.declarations[0]);
+            console.log("compFactory", compFactory);
             const compRef = this.vc.createComponent(
                 compFactory, null, this.injector);
             
